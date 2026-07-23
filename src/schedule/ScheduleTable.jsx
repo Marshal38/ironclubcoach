@@ -85,7 +85,7 @@ function ScheduleTable({ schedule, dates }) {
 
         {TIME_SLOTS.map((time) => (
           <div key={time} className="contents">
-            <div className="sticky left-0 z-10 bg-[#0b3306] flex items-center justify-center text-xs sm:text-xl font-medium text-gray-200 border-t border-gray-200 py-3 sm:py-4">
+            <div className="sticky left-0 z-10 bg-[#0b3306] flex items-center justify-center text-md sm:text-xl font-medium text-gray-200 border-t border-gray-200 py-3 sm:py-4">
               {time}
             </div>
 
