@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import CoachList from './coachs/coachList';
+import CoachList from './coachs/CoachList';
 import Applayout from './ui/Applayout';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import CoachItem from './coachs/CoachItem';
