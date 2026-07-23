@@ -11,7 +11,7 @@ function ModalWindow({ children }) {
       onClick={handleClose}
       className="fixed inset-0 bg-black/60 flex items-center justify-center z-50"
     >
-      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+      <div className="bg-white rounded-2xl max-w-2xl w-[90%] max-h-[90vh] overflow-y-auto relative">
         <button
           onClick={() => navigate(-1)}
           className="absolute top-4 right-6 text-4xl text-gray-500 hover:text-gray-800"
