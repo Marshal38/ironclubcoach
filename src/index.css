@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Times New Roman', monospace;
+  --height-screen: 100dvh;
+}
