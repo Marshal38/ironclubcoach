@@ -13,7 +13,7 @@ function CoachMiniCard({ coach, isPast }) {
   const className = `flex flex-col items-center gap-1 rounded-lg  p-1.5 transition-shadow ${
     isPast
       ? 'bg-gray-100 cursor-not-allowed'
-      : 'bg-white hover:shadow-md cursor-pointer hover:bg-emerald-50'
+      : 'bg-white hover:shadow-md cursor-pointer hover:bg-emerald-100'
   }`;
 
   const content = (

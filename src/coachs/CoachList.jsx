@@ -44,6 +44,7 @@ function CoachList() {
           key={coach.id}
           to={`/coach/${coach.id}`}
           state={{ backgroundLocation: location }}
+          className="group mx-auto sm:mx-0 w-full max-w-60 sm:max-w-none"
         >
           <CoachSingle coach={coach} />
         </Link>
