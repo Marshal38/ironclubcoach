@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import CoachItem from './coachs/CoachItem';
 import ModalWindow from './ui/ModalWindow';
 import ScheduleMain from './schedule/ScheduleMain';
+import ButtonToTop from './ui/ButtonToTop';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -49,6 +50,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <AppRoutes />
+        <ButtonToTop />
       </BrowserRouter>
     </QueryClientProvider>
   );
