@@ -10,10 +10,10 @@ function CoachMiniCard({ coach, isPast }) {
       ? '/blank-profile-picture-973460_1280-1.jpg'
       : coach.image;
 
-  const className = `flex flex-col items-center gap-1 rounded-lg  p-1.5 transition-shadow ${
+  const className = `group flex flex-col items-center gap-1 rounded-lg  p-1.5 transition-shadow ${
     isPast
       ? 'bg-gray-100 cursor-not-allowed'
-      : 'bg-white hover:shadow-md cursor-pointer hover:bg-emerald-100'
+      : 'bg-white hover:shadow-md cursor-pointer hover:bg-[#0b3306]'
   }`;
 
   const content = (
@@ -27,8 +27,8 @@ function CoachMiniCard({ coach, isPast }) {
         }`}
       />
       <span
-        className={`text-md sm:text-xl text-center font-semibold leading-tight line-clamp-2 ${
-          isPast ? 'text-gray-400' : 'text-gray-700'
+        className={`text-md sm:text-xl text-center font-semibold leading-tight line-clamp-2  ${
+          isPast ? 'text-gray-400' : 'text-gray-700  group-hover:text-white'
         }`}
       >
         {coach.name}
