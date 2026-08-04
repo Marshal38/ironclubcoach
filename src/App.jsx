@@ -9,6 +9,7 @@ import ButtonToTop from './ui/ButtonToTop';
 import LoginForm from '../src/Auth/LoginForm';
 import ProtectRoute from '../src/Auth/ProtectRoute';
 import Dashboard from './admin/Dashboard';
+import SetPassword from './Auth/setPassword';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -58,6 +59,18 @@ function AppRoutes() {
 }
 
 function App() {
+  const [isInviteFlow, setIsInviteFlow] = useState(false);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.includes('type=invite') || hash.includes('type=recovery')) {
+      setIsInviteFlow(true);
+    }
+  }, []);
+
+  if (isInviteFlow) {
+    return <SetPassword />;
+  }
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
