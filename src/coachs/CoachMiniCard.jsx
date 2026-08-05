@@ -22,7 +22,7 @@ function CoachMiniCard({ coach, isPast }) {
         src={imageSrc}
         alt={coach.name}
         onError={() => setImgError(true)}
-        className={`w-25 h-25 sm:w-40 sm:h-40 rounded-full object-cover ${
+        className={`w-25 h-25 sm:w-40 sm:h-40 rounded-full object-cover object-[center_32%] ${
           isPast ? 'grayscale opacity-60' : ''
         }`}
       />
