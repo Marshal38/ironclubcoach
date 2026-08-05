@@ -63,8 +63,14 @@ function App() {
   const [isInviteFlow, setIsInviteFlow] = useState(false);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
     const hash = window.location.hash;
-    if (hash.includes('type=invite') || hash.includes('type=recovery')) {
+
+    if (
+      params.get('code') ||
+      hash.includes('type=invite') ||
+      hash.includes('type=recovery')
+    ) {
       setIsInviteFlow(true);
     }
   }, []);

@@ -8,11 +8,25 @@ function SetPassword() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+
+    if (code) {
+      supabase.auth.exchangeCodeForSession(code).then(({ error }) => {
+        if (error) {
+          setError('Ссылка недействительна или устарела');
+        } else {
+          setIsReady(true);
+        }
+      });
+    }
+
     const { data: listener } = supabase.auth.onAuthStateChange((event) => {
       if (event === 'PASSWORD_RECOVERY' || event === 'SIGNED_IN') {
         setIsReady(true);
       }
     });
+
     return () => listener.subscription.unsubscribe();
   }, []);
 
@@ -24,11 +38,18 @@ function SetPassword() {
       return;
     }
     setIsDone(true);
-    // убираем токены из URL и уводим на админку
     window.location.replace('/staff-admin-x2z8');
   }
 
   if (isDone) return null;
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-red-600">{error}</p>
+      </div>
+    );
+  }
 
   if (!isReady) {
     return (
