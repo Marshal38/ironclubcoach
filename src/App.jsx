@@ -9,7 +9,7 @@ import ButtonToTop from './ui/ButtonToTop';
 import LoginForm from '../src/Auth/LoginForm';
 import ProtectRoute from '../src/Auth/ProtectRoute';
 import Dashboard from './admin/Dashboard';
-import SetPassword from './Auth/setPassword';
+import SetPassword from './Auth/SetPassword';
 import { useEffect, useState } from 'react';
 
 const queryClient = new QueryClient({
