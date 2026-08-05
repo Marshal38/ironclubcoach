@@ -59,7 +59,7 @@ function CoachItem() {
         src={imageSrc}
         alt={name}
         onError={() => setImgError(true)}
-        className="w-full max-w-60 sm:max-w-100 aspect-square object-cover rounded-2xl mt-3 shadow-lg/50"
+        className="w-full max-w-60 sm:max-w-100 aspect-square object-cover object-[center_32%]  rounded-2xl mt-3 shadow-lg/50"
       />
       <ul className="flex flex-col w-full sm:w-150 max-w-150 ml-0 sm:ml-1.5 mt-3">
         <li className="text-center font-bold text-2xl sm:text-3xl mt-3">
