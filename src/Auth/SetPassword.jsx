@@ -8,26 +8,46 @@ function SetPassword() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
+    let active = true;
 
-    if (code) {
-      supabase.auth.exchangeCodeForSession(code).then(({ error }) => {
+    async function init() {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      if (session && active) {
+        setIsReady(true);
+        return;
+      }
+
+      const code = new URLSearchParams(window.location.search).get('code');
+
+      if (code) {
+        const { error } = await supabase.auth.exchangeCodeForSession(code);
+
+        if (!active) return;
+
         if (error) {
           setError('Ссылка недействительна или устарела');
         } else {
+          window.history.replaceState({}, '', '/');
           setIsReady(true);
         }
-      });
+      }
     }
 
-    const { data: listener } = supabase.auth.onAuthStateChange((event) => {
-      if (event === 'PASSWORD_RECOVERY' || event === 'SIGNED_IN') {
-        setIsReady(true);
-      }
+    init();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session && active) setIsReady(true);
     });
 
-    return () => listener.subscription.unsubscribe();
+    return () => {
+      active = false;
+      subscription.unsubscribe();
+    };
   }, []);
 
   async function handleSubmit(e) {
